@@ -45,13 +45,12 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | -| - | - |
-| item_name | string | null:false |
+| name | string | null:false |
 | category | integer | null:false |
 | status | integer | null : false |
 | text | text | null:false |
 | price | integer | null:false |
 | user_id | integer | null:false , foreign_key: true |
-| item_id | integer | null:false , foreign_key: true |
 | item_address | integer | null:false |
 | days_to_ship | integer | null:false |
 | shipping_charges | integer | null:false |
@@ -62,12 +61,11 @@ Things you may want to cover:
 | - | - | - |
 | user_id | integer | null:false , foreign_key: true |
 | item_id | integer | null:false , foreign_key: true |
-| purchases_id | integer | null:false , foreign_key: true |
 
 ### Association
 belongs_to :　user
 belongs_to :　item
-has_one: Shipping_address
+has_one: shipping_address
 
 ## shipping_addresses
 | Column | Type | Options |
