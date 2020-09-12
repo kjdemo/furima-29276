@@ -52,9 +52,9 @@ Things you may want to cover:
 | price | integer | null:false |
 | user_id | integer | null:false , foreign_key: true |
 | item_id | integer | null:false , foreign_key: true |
-| item_address | string | null:false |
+| item_address | integer | null:false |
 | days_to_ship | integer | null:false |
-| shipping charges |string | null:false |
+| shipping_charges | integer | null:false |
 
 ##  purchases テーブル
 
@@ -68,7 +68,7 @@ belongs_to :　user
 belongs_to :　item
 has_one: Shipping_address
 
-## Shipping_addresses
+## shipping_addresses
 | Column | Type | Options |
 | - | - | - |
 | postcode | string | null:false |
@@ -77,6 +77,8 @@ has_one: Shipping_address
 | address | string | null:false |
 | building | string |
 | phone_number | string | null:false |
+| user_id | integer | null:false , foreign_key: true |
+| item_id | integer | null:false , foreign_key: true |
 
 ### Association
 belongs_to : purchase
