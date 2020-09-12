@@ -79,4 +79,4 @@ has_one: Shipping address
 | phone_number | string | null:false |
 
 ### Association
-belongs_to : purchases
+belongs_to : purchase
