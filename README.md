@@ -54,16 +54,6 @@ Things you may want to cover:
 |item_address | string | null:false |
 |days_to_ship | integer | null:false |
 
-##  comments テーブル
-
-| Column | Type | Options |
-| - | - | - |
-| user_id | string | null:false |
-| item_id | string | null:false |
-
-### Association
-- has_many :　items
-
 ##  purchases テーブル
 
 | Column | Type | Options |
