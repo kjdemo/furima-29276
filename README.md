@@ -62,6 +62,7 @@ Things you may want to cover:
 | - | - | - |
 | user_id | integer | null:false , foreign_key: true |
 | item_id | integer | null:false , foreign_key: true |
+| purchases_id | integer | null:false , foreign_key: true |
 
 ### Association
 belongs_to :　user
@@ -77,8 +78,7 @@ has_one: Shipping_address
 | address | string | null:false |
 | building | string |
 | phone_number | string | null:false |
-| user_id | integer | null:false , foreign_key: true |
-| item_id | integer | null:false , foreign_key: true |
+| purchases_id | integer | null:false , foreign_key: true |
 
 ### Association
 belongs_to : purchase
