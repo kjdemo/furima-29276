@@ -34,9 +34,9 @@ Things you may want to cover:
 | password | string | null: false |
 | first_name | string | null: false |
 | last_name | string | null: false |
-| japanese_text | string | null: false |
-| user_address | string | null: false |
-
+| last_name_kana | string | null: false |
+| first_name_kana | string | null: false |
+|birthday | date | null: false |
 ### Association
 - has_many :　items
 
@@ -45,14 +45,14 @@ Things you may want to cover:
 | Column | Type | Options |
 | -| - | - |
 | item_name | string | null:false |
-| image | string | null:false |
-| category | string | null:false |
-| status | string | null : false |
-| item_text | string | null:false |
+| category | integer | null:false |
+| status | integer | null : false |
+| item_text | text | null:false |
 | price | integer | null:false |
-| user_id | string | null:false |
+| user_id | integer | null:false , foreign_key: true|
 | item_id | string | null:false |
 |item_address | string | null:false |
+|days_to_ship | integer | null:false |
 
 ##  comments テーブル
 
@@ -70,8 +70,20 @@ Things you may want to cover:
 | - | - | - |
 | user_id | string | null:false |
 | item_id | string | null:false |
-|credit_card_information | string | null:false|
-|user_address | string | null:false|
 
 ### Association
 belongs_to :　users
+
+## Shipping address
+| Column | Type | Options |
+| - | - | - |
+| postcode | integer | null:false |
+| prefecture | string | null:false |
+| city | string | null:false |
+| black | string | null:false |
+| building | text |
+| phone_number | integer | null:false |
+
+### Association
+belongs_to : purchases
+belongs_to : items
