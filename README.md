@@ -48,7 +48,7 @@ Things you may want to cover:
 | item_name | string | null:false |
 | category | integer | null:false |
 | status | integer | null : false |
-| item_text | text | null:false |
+| text | text | null:false |
 | price | integer | null:false |
 | user_id | integer | null:false , foreign_key: true|
 | item_id | string | null:false |
@@ -60,7 +60,7 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | - | - | - |
-| user_id | string | null:false |
+| user_id | integer | null:false , foreign_key: true|
 | item_id | string | null:false |
 
 ### Association
@@ -68,14 +68,14 @@ belongs_to :　user
 belongs_to :　item
 has_one: Shipping address
 
-## Shipping address
+## Shipping_address
 | Column | Type | Options |
 | - | - | - |
 | postcode | string | null:false |
-| prefecture | string | null:false |
+| prefecture | integer | null:false |
 | city | string | null:false |
 | address | string | null:false |
-| building | text |
+| building | string |
 | phone_number | string | null:false |
 
 ### Association
