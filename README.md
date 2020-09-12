@@ -36,9 +36,10 @@ Things you may want to cover:
 | last_name | string | null: false |
 | last_name_kana | string | null: false |
 | first_name_kana | string | null: false |
-|birthday | date | null: false |
+| birthday | date | null: false |
 ### Association
 - has_many :　items
+- has_many: purchases
 
 ##  items テーブル
 
@@ -51,8 +52,9 @@ Things you may want to cover:
 | price | integer | null:false |
 | user_id | integer | null:false , foreign_key: true|
 | item_id | string | null:false |
-|item_address | string | null:false |
-|days_to_ship | integer | null:false |
+| item_address | string | null:false |
+| days_to_ship | integer | null:false |
+| shipping charges |string | null:false |
 
 ##  purchases テーブル
 
@@ -62,18 +64,19 @@ Things you may want to cover:
 | item_id | string | null:false |
 
 ### Association
-belongs_to :　users
+belongs_to :　user
+belongs_to :　item
+has_one: Shipping address
 
 ## Shipping address
 | Column | Type | Options |
 | - | - | - |
-| postcode | integer | null:false |
+| postcode | string | null:false |
 | prefecture | string | null:false |
 | city | string | null:false |
-| black | string | null:false |
+| address | string | null:false |
 | building | text |
-| phone_number | integer | null:false |
+| phone_number | string | null:false |
 
 ### Association
 belongs_to : purchases
-belongs_to : items
