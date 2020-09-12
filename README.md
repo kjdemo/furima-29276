@@ -50,8 +50,8 @@ Things you may want to cover:
 | status | integer | null : false |
 | text | text | null:false |
 | price | integer | null:false |
-| user_id | integer | null:false , foreign_key: true|
-| item_id | string | null:false |
+| user_id | integer | null:false , foreign_key: true |
+| item_id | integer | null:false , foreign_key: true |
 | item_address | string | null:false |
 | days_to_ship | integer | null:false |
 | shipping charges |string | null:false |
@@ -60,15 +60,15 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | - | - | - |
-| user_id | integer | null:false , foreign_key: true|
-| item_id | string | null:false |
+| user_id | integer | null:false , foreign_key: true |
+| item_id | integer | null:false , foreign_key: true |
 
 ### Association
 belongs_to :　user
 belongs_to :　item
-has_one: Shipping address
+has_one: Shipping_address
 
-## Shipping_address
+## Shipping_addresses
 | Column | Type | Options |
 | - | - | - |
 | postcode | string | null:false |
