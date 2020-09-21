@@ -81,5 +81,47 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("User can't be blank")
     end
+
+    it "商品名が41文字以上のとき登録できないこと" do
+      @item.name = "あああああああああああああああああああああああああああああああああああああああああ"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+    end
+  
+    it "商品の説明が1001文字以上のとき登録できないこと" do
+      @item.text = "ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんぁあぃいう"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Text is too long (maximum is 1000 characters)")
+    end
+
+    it "category_idが1では登録できないこと" do
+      @item.category_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category must be other than 1")
+    end
+
+    it "status_idが1では登録できないこと" do
+      @item.status_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status must be other than 1")
+    end
+
+    it "item_iddress_idが1では登録できないこと" do
+      @item.item_address_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Item address must be other than 1")
+    end
+
+    it "days_to_ship_idが1では登録できないこと" do
+      @item.days_to_ship_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
+    end
+
+    it "shipping_charges_idが1では登録できないこと" do
+      @item.shipping_charges_id = "1"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
+    end
   end
 end
