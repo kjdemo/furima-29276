@@ -8,8 +8,8 @@ class Item < ApplicationRecord
 
   belongs_to :user
 
-  validates :name,:category_id, :status_id, :text, :price, :user_id, :item_address_id, :days_to_ship_id, :shipping_charges_id, presence: true
-  validates :category_id, :status_id, :shipping_charges_id, :item_address_id, :days_to_ship_id, numericality: { other_than: 1 } 
+  validates :name,:category_id, :status_id, :text, :price, :user_id, :item_address_id, :days_to_ship_id, :shipping_charge_id, presence: true
+  validates :category_id, :status_id, :shipping_charge_id, :item_address_id, :days_to_ship_id, numericality: { other_than: 1 } 
   validates :name, length: { maximum: 40 }
   validates :text, length: { maximum: 1000 }
   PRICE_REGEX =/\A[a-z0-9]+\z/i
