@@ -7,10 +7,10 @@ app/assets/stylesheets/items/new.css %>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model: @item,local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 出品画像 %>
@@ -23,12 +23,12 @@ app/assets/stylesheets/items/new.css %>
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :hoge, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
     <%# /出品画像 %>
     <%# 商品名と商品説明 %>
-    <%= form_for @item do |f| %>
+    <%#= form_for @item do |f| %>
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
@@ -119,7 +119,7 @@ app/assets/stylesheets/items/new.css %>
       </div>
     </div>
     <%# /販売価格 %>
-    <% end %>
+    <%# end %>
 
     <%# 注意書き %>
     <div class="caution">
@@ -142,8 +142,8 @@ app/assets/stylesheets/items/new.css %>
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', "#", class:"back-btn" %>
+      <%= f.submit "変更する",class:"sell-btn" %>
+      <%=link_to 'もどる', item_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
