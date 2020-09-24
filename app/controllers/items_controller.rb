@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :show]
+
   def new
     @item = Item.new
   end
   
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
         redirect_to action: :show
     else
@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def index
@@ -31,6 +30,10 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   private
