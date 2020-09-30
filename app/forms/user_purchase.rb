@@ -6,10 +6,10 @@ class UserPurchase
 
   with_options presence: true do
     validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :prefecture_id
+    validates :prefecture_id, numericality: { other_than: 1 } 
     validates :city
     validates :address
-    validates :phone_number, length: { minimum: 11 }, format: {with: /\A[0-9]+\z/}
+    validates :phone_number, length: {maximum: 11}, format: {with: /\A[0-9]+\z/}
   end
   validates :token, presence: true
   def save
