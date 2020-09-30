@@ -14,8 +14,8 @@ class UserPurchase
   validates :token, presence: true
   def save
     # 保存するのは配送先の情報とpurchaseテーブルのuser_idと_item_id,フォームオブジェクトは数値か文字しか扱えない（.id)はできない
-    purchase = Purchase.create!(user_id: user_id, item_id: item_id)
-    ShippingAddress.create!(postcode: postcode, prefecture_id: prefecture_id, city: city, address: address, building: building, phone_number: phone_number, purchase_id: purchase.id)
+    purchase = Purchase.create(user_id: user_id, item_id: item_id)
+    ShippingAddress.create(postcode: postcode, prefecture_id: prefecture_id, city: city, address: address, building: building, phone_number: phone_number, purchase_id: purchase.id)
   end
 
 end
