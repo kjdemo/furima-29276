@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :purchase
 
-  validates :name,:category_id, :status_id, :text, :price, :user_id, :item_address_id, :days_to_ship_id, :shipping_charge_id, presence: true
+  validates :name, :category_id, :status_id, :text, :price, :user, :item_address_id, :days_to_ship_id, :shipping_charge_id, :image, presence: true
   validates :category_id, :status_id, :shipping_charge_id, :item_address_id, :days_to_ship_id, numericality: { other_than: 1 } 
   validates :name, length: { maximum: 40 }
   validates :text, length: { maximum: 1000 }
