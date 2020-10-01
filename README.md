@@ -80,3 +80,4 @@ has_one: shipping_address
 
 ### Association
 belongs_to : purchase
+

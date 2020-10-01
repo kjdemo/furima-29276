@@ -4,6 +4,7 @@ RSpec.describe Item, type: :model do
   describe '商品出品' do
     before do
       @item = FactoryBot.build(:item)
+      @item.image = fixture_file_upload("/files/test_image.png")
     end
 
     it "必須項目があれば登録出来ること" do
@@ -35,9 +36,9 @@ RSpec.describe Item, type: :model do
     end
 
     it "配送料の負担についての情報が空では登録できないこと" do
-      @item.shipping_charges_id = ""
+      @item.shipping_charge_id = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping charges can't be blank")
+      expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
     end
 
     it "発送元の地域についての情報が空では登録できないこと" do
@@ -76,12 +77,6 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
 
-    it "出品したユーザーの情報が空では登録できないこと" do
-      @item.user_id = ""
-      @item.valid?
-      expect(@item.errors.full_messages).to include("User can't be blank")
-    end
-
     it "商品名が41文字以上のとき登録できないこと" do
       @item.name = "あああああああああああああああああああああああああああああああああああああああああ"
       @item.valid?
@@ -118,10 +113,16 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
     end
 
-    it "shipping_charges_idが1では登録できないこと" do
-      @item.shipping_charges_id = "1"
+    it "shipping_charge_idが1では登録できないこと" do
+      @item.shipping_charge_id = "1"
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
+      expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
+    end
+
+    it "画像が空では登録できないこと" do
+      @item.image = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Image can't be blank")
     end
   end
 end
