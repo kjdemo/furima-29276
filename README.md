@@ -38,7 +38,7 @@ Things you may want to cover:
 | first_name_kana | string | null: false |
 | birthday | date | null: false |
 ### Association
-- has_many :　items
+- has_many : items
 - has_many: purchases
 
 ##  items テーブル
@@ -63,8 +63,8 @@ Things you may want to cover:
 | item_id | integer | null:false , foreign_key: true |
 
 ### Association
-belongs_to :　user
-belongs_to :　item
+belongs_to : user
+belongs_to : item
 has_one: shipping_address
 
 ## shipping_addresses
