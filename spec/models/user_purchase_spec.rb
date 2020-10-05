@@ -19,7 +19,7 @@ RSpec.describe UserPurchase, type: :model do
     it "it 郵便番号にハイフンがないと登録できないこと" do
       @user_purchase.postcode = '1234567'
       @user_purchase.valid?
-      expect(@user_purchase.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
+      expect(@user_purchase.errors.full_messages).to include("Postcode は（-）が必須です")
     end
 
     it "都道府県の情報が空では登録できないこと" do
